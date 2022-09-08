@@ -1,12 +1,35 @@
 # docker_tray
-Tray indicator for start/stop docker containers
+Tray indicator for start/stop docker containers.
+Script start docker services:
+- docker
+- docker.socket
+- containerd
 
-## Three versions on three branches
-- [bash_docker_tray](https://github.com/anorjen/docker_tray/tree/bash_docker_tray):
-    bash script uses [yad](https://sourceforge.net/projects/yad-dialog/) for ui
+And stop it with quit.
+`Updating list of containers on show`
 
-- [systray_docker_tray](https://github.com/anorjen/docker_tray/tree/systray_docker_tray):
-    *go* version uses [systray](https://github.com/getlantern/systray)
+## Dependencies:window
+- [gotk3](https://github.com/gotk3/gotk3/gtk)
+- [go-appindicator](https://github.com/dawidd6/go-appindicator)
 
-- [gotk_docker_tray](https://github.com/anorjen/docker_tray/tree/gotk_docker_tray):
-    *go* version uses [gotk3](https://github.com/gotk3/gotk3/gtk) and [go-appindicator](https://github.com/dawidd6/go-appindicator)
+## Build
+```
+go build
+```
+
+## Run
+without `Build`
+```
+go run main.go
+```
+or after `Build`
+```
+./docker_tray
+```
+
+## Fix
+if not found `appindicator`
+```
+./appindicator_fix.sh
+```
+make symlinks to `ayatana-appindicator`
