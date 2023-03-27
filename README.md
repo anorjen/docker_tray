@@ -14,13 +14,13 @@ And stop it with quit.
 
 ## Build
 ```
-go build
+go build -o docker_tray cmd/main.go
 ```
 
 ## Run
 without `Build`
 ```
-go run main.go
+go run cmd/main.go
 ```
 or after `Build`
 ```

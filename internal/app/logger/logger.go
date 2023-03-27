@@ -8,6 +8,7 @@ import (
 
 type Logger struct{}
 
+var fatalFormat = "[%s] ERROR: %s %s\n"
 var errorFormat = "[%s] ERROR: %s %s\n"
 var infoFormat = "[%s] INFO: %s\n"
 
@@ -17,4 +18,9 @@ func (l *Logger) LogError(msg string, err error) {
 
 func (l *Logger) LogInfo(msg string) {
 	fmt.Fprintf(os.Stderr, infoFormat, time.Now().Format("2006-01-02 15:04:05"), msg)
+}
+
+func (l *Logger) LogFatal(msg string, err error) {
+	fmt.Fprintf(os.Stderr, fatalFormat, time.Now().Format("2006-01-02 15:04:05"), msg, err.Error())
+	os.Exit(1)
 }
